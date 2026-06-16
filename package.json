@@ -1,0 +1,71 @@
+{
+  "name": "@m10c/content-elements",
+  "version": "0.0.1",
+  "description": "CMS content elements bundle (block editor, SEO, variants)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "components": [
+        "./dist/components/index.d.ts"
+      ],
+      "hooks": [
+        "./dist/hooks/index.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch --onSuccess 'yarn sync:dist'",
+    "sync": "for d in ../balance-admin ../balance-web; do rm -rf $d/node_modules/@m10c/content-elements && cp -r . $d/node_modules/@m10c/content-elements && rm -rf $d/node_modules/@m10c/content-elements/node_modules; done",
+    "sync:dist": "for d in ../balance-admin ../balance-web; do rm -rf $d/node_modules/@m10c/content-elements/dist && cp -r dist $d/node_modules/@m10c/content-elements/dist; done",
+    "ts": "tsc --noEmit",
+    "lint": "eslint src/"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "@mui/material": ">=5.0.0",
+    "@mui/icons-material": ">=5.0.0",
+    "react-typed-form": ">=0.3.0",
+    "@m10c/mui-kit": "*"
+  },
+  "peerDependenciesMeta": {
+    "@mui/material": { "optional": true },
+    "@mui/icons-material": { "optional": true },
+    "react-typed-form": { "optional": true },
+    "@m10c/mui-kit": { "optional": true }
+  },
+  "devDependencies": {
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "@mui/material": "^6.4.7",
+    "@mui/icons-material": "^6.4.7",
+    "@m10c/mui-kit": "file:../m10c-mui-kit",
+    "@types/react": "18",
+    "@types/react-dom": "18",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-typed-form": "0.3.6",
+    "tsup": "^8.4.0",
+    "typescript": "~5.7.2"
+  },
+  "files": [
+    "dist"
+  ]
+}
