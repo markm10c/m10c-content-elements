@@ -11,18 +11,22 @@ import type {
   BlockFieldRenderers,
   BlockType,
   BlockTypeField,
+  BlockTypeInput,
   ListField,
   SimpleField,
-} from './types';
+} from '../types';
 
 type Props = {
-  blockTypes: readonly BlockType[];
+  blockTypes: readonly BlockTypeInput[];
   field: FieldProp<Block[]>;
   renderers?: BlockFieldRenderers;
 };
 
 export default function BlocksField({ blockTypes, field, renderers }: Props) {
   const blocks = field.value ?? [];
+  // The boundary types `fields` as `unknown` (see BlockTypeInput); the BE sends
+  // the rich field metadata, so narrow to BlockType here, the single point of
+  // truth for the shape the renderers below depend on.
   const blockTypesByKey = React.useMemo(
     () =>
       Object.fromEntries(
@@ -68,7 +72,7 @@ function BlockCard({ block, blockType, renderers, onChange }: BlockCardProps) {
     <Card>
       <CardContent sx={{ p: 2.5, '&:last-child': { pb: 2.5 } }}>
         <Stack spacing={2}>
-          <Typography variant="subtitle1" fontWeight={700}>
+          <Typography variant="subtitle1">
             {blockType?.label ?? `Unknown block: ${block.type}`}
           </Typography>
           {blockType ? (
@@ -174,9 +178,7 @@ function SimpleFieldRenderer({
 
   return (
     <Stack spacing={1}>
-      <Typography variant="body2" fontWeight={500}>
-        {label}
-      </Typography>
+      <Typography variant="subtitle2">{label}</Typography>
       <FieldText
         field={fieldProp}
         hiddenLabel

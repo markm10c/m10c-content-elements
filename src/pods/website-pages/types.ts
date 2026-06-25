@@ -30,6 +30,19 @@ export type BlockType = {
   fields: Record<string, BlockTypeField>;
 };
 
+/**
+ * Boundary type for the `blockTypes` prop. Consumers pass block types straight
+ * from their generated `/block-types` endpoint, whose schema can't express the
+ * rich `fields` metadata (it commonly generates as `string[]`). We accept the
+ * structural minimum here and narrow `fields` to `BlockType` internally, so
+ * consumers never need to cast or import `BlockType`.
+ */
+export type BlockTypeInput = {
+  key: string;
+  label: string;
+  fields: unknown;
+};
+
 export type Block = {
   type: string;
   data: Record<string, unknown>;

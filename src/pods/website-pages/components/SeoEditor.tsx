@@ -1,6 +1,7 @@
 'use client';
 
-import { Box, Button, Chip, Stack, TextField, Typography } from '@mui/material';
+import { Box, Button, Chip, Stack, Typography } from '@mui/material';
+import { FieldText } from '@m10c/mui-kit/form';
 import type React from 'react';
 import type { FieldProp } from 'react-typed-form';
 
@@ -35,13 +36,8 @@ function CharacterCount({
         size="small"
         label={isTooLong ? 'Too long' : isGood ? 'Good' : 'Too short'}
         color={isTooLong ? 'error' : isGood ? 'success' : 'warning'}
-        sx={{ fontSize: 13, fontWeight: 500 }}
       />
-      <Typography
-        variant="caption"
-        color="text.secondary"
-        sx={{ letterSpacing: 0.4 }}
-      >
+      <Typography variant="caption" color="text.secondary">
         Character count: {count} ({min}-{max} recommended)
       </Typography>
     </Stack>
@@ -64,18 +60,17 @@ export default function SeoEditor({
 
   return (
     <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', minHeight: 0 }}>
-      <Box sx={{ flex: 1, overflow: 'auto', p: 4, pb: 10, bgcolor: '#F8F9FA' }}>
+      <Box
+        sx={{ flex: 1, overflow: 'auto', p: 4, pb: 10, bgcolor: 'background.level1' }}
+      >
         <Stack direction="row" sx={{ gap: '56px', justifyContent: 'center' }}>
           <Stack sx={{ width: 571 }} spacing={3}>
             <Stack spacing={1}>
-              <Typography variant="body2" fontWeight={500}>
+              <Typography variant="subtitle2">
                 Page Title
               </Typography>
-              <TextField
-                value={pageTitle}
-                onChange={(e) =>
-                  pageTitleField.handleValueChange(e.target.value)
-                }
+              <FieldText
+                field={pageTitleField}
                 hiddenLabel
                 size="small"
                 fullWidth
@@ -83,14 +78,11 @@ export default function SeoEditor({
               <CharacterCount value={pageTitle} min={45} max={60} />
             </Stack>
             <Stack spacing={1}>
-              <Typography variant="body2" fontWeight={500}>
+              <Typography variant="subtitle2">
                 Description
               </Typography>
-              <TextField
-                value={description}
-                onChange={(e) =>
-                  descriptionField.handleValueChange(e.target.value)
-                }
+              <FieldText
+                field={descriptionField}
                 hiddenLabel
                 size="small"
                 fullWidth
@@ -104,7 +96,7 @@ export default function SeoEditor({
 
           <Stack sx={{ width: 555 }} spacing={3}>
             <Stack spacing={1}>
-              <Typography variant="body2" fontWeight={500}>
+              <Typography variant="subtitle2">
                 Search Preview
               </Typography>
               <Box
@@ -179,7 +171,7 @@ export default function SeoEditor({
               </Box>
             </Stack>
             <Stack spacing={1}>
-              <Typography variant="body2" fontWeight={500}>
+              <Typography variant="subtitle2">
                 Social Media Preview
               </Typography>
               <Box

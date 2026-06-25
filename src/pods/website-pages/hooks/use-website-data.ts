@@ -8,6 +8,16 @@ type PreviewMessage = {
 
 type UseWebsiteDataConfig = {
   path: string;
+  /**
+   * Page data fetched on the server and passed in as a prop. Used as the data
+   * source for normal (non-preview) rendering, so the published content is in
+   * the initial server-rendered HTML rather than fetched on the client.
+   */
+  initialData?: Record<string, unknown> | null;
+  /**
+   * Optional client-side fetcher. Only used when no `initialData` is provided
+   * (e.g. the server fetch failed). When `initialData` is set this is ignored.
+   */
   fetchData?: () => Promise<Record<string, unknown>>;
 };
 
@@ -20,7 +30,9 @@ type UseWebsiteDataResult = {
 export default function useWebsiteData(
   config: UseWebsiteDataConfig,
 ): UseWebsiteDataResult {
-  const [apiData, setApiData] = useState<Record<string, unknown>>({});
+  const [apiData, setApiData] = useState<Record<string, unknown>>(
+    config.initialData ?? {},
+  );
   const [previewData, setPreviewData] = useState<Record<
     string,
     unknown
@@ -51,14 +63,17 @@ export default function useWebsiteData(
   }, [isPreview]);
 
   useEffect(() => {
-    if (isPreview || !config.fetchData) return;
+    // In preview mode data comes from postMessage; when the server already
+    // provided initialData there is nothing to fetch on the client. Only fall
+    // back to a client fetch if the server render produced no data.
+    if (isPreview || config.initialData || !config.fetchData) return;
 
     setIsLoading(true);
     config.fetchData().then((result) => {
       setApiData(result);
       setIsLoading(false);
     });
-  }, [isPreview, config.fetchData, config.path]);
+  }, [isPreview, config.initialData, config.fetchData, config.path]);
 
   return {
     data: isPreview ? (previewData ?? {}) : apiData,

@@ -19,7 +19,7 @@ import { FieldProp } from 'react-typed-form';
 
 import usePreviewSender from '../hooks/use-preview-sender';
 import BlocksField from './BlocksField';
-import type { Block, BlockFieldRenderers, BlockType } from './types';
+import type { Block, BlockFieldRenderers, BlockTypeInput } from '../types';
 
 type PreviewWidth = 'desktop' | 'tablet' | 'mobile';
 
@@ -30,7 +30,7 @@ const PREVIEW_WIDTHS = {
 } as const;
 
 type Props = {
-  blockTypes: readonly BlockType[];
+  blockTypes: readonly BlockTypeInput[];
   field: FieldProp<Block[]>;
   renderers?: BlockFieldRenderers;
   /** Site origin for the preview iframe and postMessage target. */
@@ -75,7 +75,7 @@ export default function PageEditor({
             overflow: 'auto',
             p: 3,
             pb: 10,
-            bgcolor: '#F8F9FA',
+            bgcolor: 'background.level1',
           }}
         >
           {!showPreview && (
@@ -104,7 +104,7 @@ export default function PageEditor({
                 size="small"
                 startIcon={<VisibilityOff />}
                 onClick={() => setShowPreview(false)}
-                sx={{ whiteSpace: 'nowrap', bgcolor: 'white' }}
+                sx={{ whiteSpace: 'nowrap', bgcolor: 'background.paper' }}
               >
                 Hide Preview
               </Button>
@@ -120,7 +120,7 @@ export default function PageEditor({
                     />
                   }
                   IconComponent={KeyboardArrowDown}
-                  sx={{ bgcolor: 'white' }}
+                  sx={{ bgcolor: 'background.paper' }}
                 >
                   <MenuItem value="desktop">Desktop</MenuItem>
                   <MenuItem value="tablet">Tablet</MenuItem>
