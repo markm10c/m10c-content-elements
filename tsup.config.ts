@@ -15,6 +15,6 @@ export default defineConfig({
     'react-typed-form',
     '@mui/material',
     '@mui/icons-material',
-    '@m10c/mui-kit',
+    'm10c-mui-kit',
   ],
 });

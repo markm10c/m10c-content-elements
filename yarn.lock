@@ -350,9 +350,6 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@m10c/mui-kit@file:../m10c-mui-kit":
-  version "0.0.1"
-
 "@mui/core-downloads-tracker@^6.5.0":
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-6.5.0.tgz#e9f7049d7e7bb1ee05839f7a0ce813755f137432"
@@ -434,6 +431,11 @@
     clsx "^2.1.1"
     prop-types "^15.8.1"
     react-is "^19.0.0"
+
+"@phosphor-icons/react@^2.1.7":
+  version "2.1.10"
+  resolved "https://registry.yarnpkg.com/@phosphor-icons/react/-/react-2.1.10.tgz#3a97ec5b7a4b8d53afeb29125bc17e74ed2daf92"
+  integrity sha512-vt8Tvq8GLjheAZZYa+YG/pW7HDbov8El/MANW8pOAz4eGxrwhnbfrQZq0Cp4q8zBEu8NIhHdnr+r8thnfRSNYA==
 
 "@popperjs/core@^2.11.8":
   version "2.11.8"
@@ -910,6 +912,11 @@ loose-envify@^1.0.0, loose-envify@^1.4.0:
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
+
+"m10c-mui-kit@file:../m10c-mui-kit":
+  version "0.0.1"
+  dependencies:
+    "@phosphor-icons/react" "^2.1.7"
 
 magic-string@^0.30.17:
   version "0.30.21"

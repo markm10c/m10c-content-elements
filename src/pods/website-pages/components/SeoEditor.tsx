@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Button, Chip, Stack, Typography } from '@mui/material';
-import { FieldText } from '@m10c/mui-kit/form';
+import { FieldText } from 'm10c-mui-kit/form';
 import type React from 'react';
 import type { FieldProp } from 'react-typed-form';
 

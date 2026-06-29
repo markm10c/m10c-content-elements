@@ -1,7 +1,7 @@
 'use client';
 
 import { Card, CardContent, Divider, Stack, Typography } from '@mui/material';
-import { FieldText } from '@m10c/mui-kit/form';
+import { FieldText } from 'm10c-mui-kit/form';
 import React from 'react';
 import { FieldProp } from 'react-typed-form';
 
