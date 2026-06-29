@@ -1,4 +1,16 @@
-export { B as Block, a as BlockFieldRenderer, b as BlockFieldRendererProps, c as BlockFieldRenderers, d as BlockType, e as BlockTypeField, f as BlockTypeInput, L as ListField, S as SimpleField, g as SimpleFieldKind } from '../types-BHroyBTX.js';
+type UsePreviewSenderConfig = {
+    /** The full preview URL to load in the iframe */
+    previewUrl: string;
+    /** The current page path */
+    pagePath: string;
+    /** The current form content to send to the preview */
+    content: Record<string, unknown>;
+};
+type UsePreviewSenderResult = {
+    /** Ref to attach to the iframe element */
+    iframeRef: React.RefObject<HTMLIFrameElement | null>;
+};
+declare function usePreviewSender(config: UsePreviewSenderConfig): UsePreviewSenderResult;
 
 type UseWebsiteDataConfig = {
     path: string;
@@ -21,4 +33,4 @@ type UseWebsiteDataResult = {
 };
 declare function useWebsiteData(config: UseWebsiteDataConfig): UseWebsiteDataResult;
 
-export { useWebsiteData };
+export { usePreviewSender, useWebsiteData };

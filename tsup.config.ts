@@ -2,9 +2,9 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig({
   entry: {
-    'index': 'src/index.ts',
-    'website-pages/index': 'src/pods/website-pages/index.ts',
-    'website-pages/public': 'src/pods/website-pages/public/index.ts',
+    'website-pages/components': 'src/pods/website-pages/components/index.ts',
+    'website-pages/hooks': 'src/pods/website-pages/hooks/index.ts',
+    'website-pages/types': 'src/pods/website-pages/types.ts',
   },
   format: ['esm'],
   dts: true,

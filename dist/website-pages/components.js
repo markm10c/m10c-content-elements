@@ -1,3 +1,7 @@
+import {
+  usePreviewSender
+} from "../chunk-E4KLHLPV.js";
+
 // src/pods/website-pages/components/BlocksField.tsx
 import { Card, CardContent, Divider, Stack, Typography } from "@mui/material";
 import { FieldText } from "m10c-mui-kit/form";
@@ -160,44 +164,6 @@ import {
   Stack as Stack2
 } from "@mui/material";
 import React2 from "react";
-
-// src/pods/website-pages/hooks/use-preview-sender.ts
-import { useCallback, useEffect, useRef } from "react";
-function usePreviewSender(config) {
-  const iframeRef = useRef(null);
-  const contentRef = useRef(config.content);
-  contentRef.current = config.content;
-  const sendContent = useCallback(
-    (content) => {
-      const iframe = iframeRef.current;
-      if (!iframe?.contentWindow || !config.previewUrl) return;
-      iframe.contentWindow.postMessage(
-        {
-          type: "m10c-cms-preview",
-          content,
-          pagePath: config.pagePath
-        },
-        config.previewUrl
-      );
-    },
-    [config.pagePath, config.previewUrl]
-  );
-  useEffect(() => {
-    function handleMessage(event) {
-      if (event.data?.type === "m10c-cms-preview-ready") {
-        sendContent(contentRef.current);
-      }
-    }
-    window.addEventListener("message", handleMessage);
-    return () => window.removeEventListener("message", handleMessage);
-  }, [sendContent]);
-  useEffect(() => {
-    sendContent(config.content);
-  }, [config.content, sendContent]);
-  return { iframeRef };
-}
-
-// src/pods/website-pages/components/PageEditor.tsx
 import { jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
 var PREVIEW_WIDTHS = {
   desktop: 1280,
@@ -640,7 +606,6 @@ function SeoEditor({
 export {
   BlocksField,
   PageEditor,
-  SeoEditor,
-  usePreviewSender
+  SeoEditor
 };
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=components.js.map

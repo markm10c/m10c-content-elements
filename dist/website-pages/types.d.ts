@@ -45,4 +45,4 @@ type BlockFieldRendererProps = {
 type BlockFieldRenderer = (props: BlockFieldRendererProps) => React.ReactNode;
 type BlockFieldRenderers = Partial<Record<SimpleFieldKind | string, BlockFieldRenderer>>;
 
-export type { Block as B, ListField as L, SimpleField as S, BlockFieldRenderer as a, BlockFieldRendererProps as b, BlockFieldRenderers as c, BlockType as d, BlockTypeField as e, BlockTypeInput as f, SimpleFieldKind as g };
+export type { Block, BlockFieldRenderer, BlockFieldRendererProps, BlockFieldRenderers, BlockType, BlockTypeField, BlockTypeInput, ListField, SimpleField, SimpleFieldKind };

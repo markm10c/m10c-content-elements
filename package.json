@@ -3,29 +3,30 @@
   "version": "0.0.1",
   "description": "CMS content elements bundle (block editor, SEO, variants)",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+    "./website-pages/components": {
+      "types": "./dist/website-pages/components.d.ts",
+      "import": "./dist/website-pages/components.js"
     },
-    "./website-pages": {
-      "types": "./dist/website-pages/index.d.ts",
-      "import": "./dist/website-pages/index.js"
+    "./website-pages/hooks": {
+      "types": "./dist/website-pages/hooks.d.ts",
+      "import": "./dist/website-pages/hooks.js"
     },
-    "./website-pages/public": {
-      "types": "./dist/website-pages/public.d.ts",
-      "import": "./dist/website-pages/public.js"
+    "./website-pages/types": {
+      "types": "./dist/website-pages/types.d.ts",
+      "import": "./dist/website-pages/types.js"
     }
   },
   "typesVersions": {
     "*": {
-      "website-pages": [
-        "./dist/website-pages/index.d.ts"
+      "website-pages/components": [
+        "./dist/website-pages/components.d.ts"
       ],
-      "website-pages/public": [
-        "./dist/website-pages/public.d.ts"
+      "website-pages/hooks": [
+        "./dist/website-pages/hooks.d.ts"
+      ],
+      "website-pages/types": [
+        "./dist/website-pages/types.d.ts"
       ]
     }
   },
