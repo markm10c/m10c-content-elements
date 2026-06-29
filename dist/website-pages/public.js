@@ -38,4 +38,4 @@ function useWebsiteData(config) {
 export {
   useWebsiteData
 };
-//# sourceMappingURL=data.js.map
+//# sourceMappingURL=public.js.map

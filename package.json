@@ -14,9 +14,9 @@
       "types": "./dist/website-pages/index.d.ts",
       "import": "./dist/website-pages/index.js"
     },
-    "./website-pages/data": {
-      "types": "./dist/website-pages/data.d.ts",
-      "import": "./dist/website-pages/data.js"
+    "./website-pages/public": {
+      "types": "./dist/website-pages/public.d.ts",
+      "import": "./dist/website-pages/public.js"
     }
   },
   "typesVersions": {
@@ -24,8 +24,8 @@
       "website-pages": [
         "./dist/website-pages/index.d.ts"
       ],
-      "website-pages/data": [
-        "./dist/website-pages/data.d.ts"
+      "website-pages/public": [
+        "./dist/website-pages/public.d.ts"
       ]
     }
   },
