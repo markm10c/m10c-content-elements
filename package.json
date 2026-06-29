@@ -10,22 +10,15 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./components": {
-      "types": "./dist/components/index.d.ts",
-      "import": "./dist/components/index.js"
-    },
-    "./hooks": {
-      "types": "./dist/hooks/index.d.ts",
-      "import": "./dist/hooks/index.js"
+    "./website-pages": {
+      "types": "./dist/website-pages/index.d.ts",
+      "import": "./dist/website-pages/index.js"
     }
   },
   "typesVersions": {
     "*": {
-      "components": [
-        "./dist/components/index.d.ts"
-      ],
-      "hooks": [
-        "./dist/hooks/index.d.ts"
+      "website-pages": [
+        "./dist/website-pages/index.d.ts"
       ]
     }
   },
