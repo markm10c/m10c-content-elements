@@ -1,8 +1,11 @@
-// Public renderer surface — safe for the published website (no MUI / editor UI).
-// The editor components (PageEditor, BlocksField, SeoEditor, usePreviewSender)
-// live in the ./editor entry so a site consuming useWebsiteData doesn't have to
-// resolve the admin UI kit.
-export { default as useWebsiteData } from './hooks/use-website-data';
+// Primary website-pages surface — the admin block/SEO editor and live-preview
+// sender (the main consumer, the CMS admin). Pulls in MUI + m10c-mui-kit.
+// The published-site data hook lives in the lighter ./data entry so a site that
+// only renders pages doesn't have to resolve the editor's UI dependencies.
+export { default as BlocksField } from './components/BlocksField';
+export { default as PageEditor } from './components/PageEditor';
+export { default as SeoEditor } from './components/SeoEditor';
+export { default as usePreviewSender } from './hooks/use-preview-sender';
 export type {
   Block,
   BlockFieldRenderer,

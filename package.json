@@ -14,9 +14,9 @@
       "types": "./dist/website-pages/index.d.ts",
       "import": "./dist/website-pages/index.js"
     },
-    "./website-pages/editor": {
-      "types": "./dist/website-pages/editor.d.ts",
-      "import": "./dist/website-pages/editor.js"
+    "./website-pages/data": {
+      "types": "./dist/website-pages/data.d.ts",
+      "import": "./dist/website-pages/data.js"
     }
   },
   "typesVersions": {
@@ -24,8 +24,8 @@
       "website-pages": [
         "./dist/website-pages/index.d.ts"
       ],
-      "website-pages/editor": [
-        "./dist/website-pages/editor.d.ts"
+      "website-pages/data": [
+        "./dist/website-pages/data.d.ts"
       ]
     }
   },
