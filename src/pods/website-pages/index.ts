@@ -1,7 +1,7 @@
-export { default as BlocksField } from './components/BlocksField';
-export { default as PageEditor } from './components/PageEditor';
-export { default as SeoEditor } from './components/SeoEditor';
-export { default as usePreviewSender } from './hooks/use-preview-sender';
+// Public renderer surface — safe for the published website (no MUI / editor UI).
+// The editor components (PageEditor, BlocksField, SeoEditor, usePreviewSender)
+// live in the ./editor entry so a site consuming useWebsiteData doesn't have to
+// resolve the admin UI kit.
 export { default as useWebsiteData } from './hooks/use-website-data';
 export type {
   Block,

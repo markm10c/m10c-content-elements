@@ -13,12 +13,19 @@
     "./website-pages": {
       "types": "./dist/website-pages/index.d.ts",
       "import": "./dist/website-pages/index.js"
+    },
+    "./website-pages/editor": {
+      "types": "./dist/website-pages/editor.d.ts",
+      "import": "./dist/website-pages/editor.js"
     }
   },
   "typesVersions": {
     "*": {
       "website-pages": [
         "./dist/website-pages/index.d.ts"
+      ],
+      "website-pages/editor": [
+        "./dist/website-pages/editor.d.ts"
       ]
     }
   },

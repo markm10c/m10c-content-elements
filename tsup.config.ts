@@ -4,6 +4,7 @@ export default defineConfig({
   entry: {
     'index': 'src/index.ts',
     'website-pages/index': 'src/pods/website-pages/index.ts',
+    'website-pages/editor': 'src/pods/website-pages/editor.ts',
   },
   format: ['esm'],
   dts: true,
